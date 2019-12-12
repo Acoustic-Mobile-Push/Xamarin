@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.4.3.0.991211\build\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.4.3.0.991211\build\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{152E6DEF-D45C-4B4E-9E65-C75A5AEEC189}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Sample.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>SampleiOS</AssemblyName>
+    <XamarinInsightsApiKey>5a419c98c13662528dd48480a6dc1fbd19b06398</XamarinInsightsApiKey>
+    <ReleaseVersion>3.8.0</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+    <CodesignProvision></CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignKey>iPhone Developer: Jeremy Buchman (JWM8225GXH)</CodesignKey>
+    <CodesignProvision>VS: jb.devapp Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <CodesignKey>iPhone Developer: Jeremy Buchman (JWM8225GXH)</CodesignKey>
+    <CodesignProvision>VS: jb.devapp Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchProfiling>false</MtouchProfiling>
+    <MtouchLink>None</MtouchLink>
+<MtouchExtraArgs></MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLite.Net">
+      <HintPath>..\packages\SQLite.Net.Core-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="AcousticMobilePush.Forms">
+      <HintPath>..\..\..\sdk\AcousticMobilePush.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Async">
+      <HintPath>..\packages\SQLite.Net.Async-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinIOS.Unified">
+      <HintPath>..\packages\SQLite.Net-PCL.3.1.1\lib\Xamarin.iOS10\SQLite.Net.Platform.XamarinIOS.Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Insights">
+      <HintPath>..\packages\Xamarin.Insights.1.12.3\lib\Xamarin.iOS10\Xamarin.Insights.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PLCrashReporterUnifiedBinding">
+      <HintPath>..\packages\Xamarin.Insights.1.12.3\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebP.Touch">
+      <HintPath>..\packages\WebP.Touch.1.0.8\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps">
+      <HintPath>..\packages\Xamarin.Forms.Maps.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps.iOS">
+      <HintPath>..\packages\Xamarin.Forms.Maps.4.3.0.991211\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.4.11.982\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.4.11.982\lib\Xamarin.iOS10\FFImageLoading.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.4.11.982\lib\Xamarin.iOS10\FFImageLoading.Forms.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.4.11.982\lib\Xamarin.iOS10\FFImageLoading.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime">
+      <HintPath>..\packages\NodaTime.2.4.7\lib\netstandard2.0\NodaTime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FreshEssentials">
+      <HintPath>..\packages\FreshEssentials.2.1.3\lib\Xamarin.iOS10\FreshEssentials.dll</HintPath>
+    </Reference>
+    <Reference Include="FreshEssentials.iOS">
+      <HintPath>..\packages\FreshEssentials.2.1.3\lib\Xamarin.iOS10\FreshEssentials.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="AcousticMobilePush.iOS">
+      <HintPath>..\..\..\sdk\AcousticMobilePush.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sample\Sample.csproj">
+      <Project>{CEBECA3A-76F2-4EB3-ADA4-D59650DA3321}</Project>
+      <Name>Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.iOS.Notification\Sample.iOS.Notification.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{A2963B8E-E4DB-4BAB-9925-A3A3F64DD37C}</Project>
+      <Name>Sample.iOS.Notification</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Images.xcassets\play.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\cancel.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\cancel.imageset\cancel.png" />
+    <ImageAsset Include="Resources\Images.xcassets\cancel.imageset\cancel%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\comment.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\comment.imageset\comment.png" />
+    <ImageAsset Include="Resources\Images.xcassets\comment.imageset\comment%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\comment.imageset\comment%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\note.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\note.imageset\note.png" />
+    <ImageAsset Include="Resources\Images.xcassets\note.imageset\note%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\note.imageset\note%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\notification.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\notification.imageset\notification.png" />
+    <ImageAsset Include="Resources\Images.xcassets\notification.imageset\notification%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\notification.imageset\notification%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\offer.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\offer.imageset\offer.png" />
+    <ImageAsset Include="Resources\Images.xcassets\offer.imageset\offer%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\offer.imageset\offer%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\store.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\store.imageset\store.png" />
+    <ImageAsset Include="Resources\Images.xcassets\store.imageset\store%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\store.imageset\store%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\dismiss.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\handle.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\handle.imageset\handle.png" />
+    <ImageAsset Include="Resources\Images.xcassets\handle.imageset\handle%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\handle.imageset\handle%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\dismiss.imageset\dismiss.png" />
+    <ImageAsset Include="Resources\Images.xcassets\dismiss.imageset\dismiss%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\dismiss.imageset\dismiss%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\cancel.imageset\cancel%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\next.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\prev.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\trash.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\next.imageset\chevron-down.png" />
+    <ImageAsset Include="Resources\Images.xcassets\next.imageset\chevron-down%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\next.imageset\chevron-down%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\prev.imageset\chevron-up.png" />
+    <ImageAsset Include="Resources\Images.xcassets\prev.imageset\chevron-up%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\prev.imageset\chevron-up%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\trash.imageset\trash.png" />
+    <ImageAsset Include="Resources\Images.xcassets\trash.imageset\trash%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\trash.imageset\trash%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\refresh.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\refresh.imageset\refresh%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\refresh.imageset\refresh.png" />
+    <ImageAsset Include="Resources\Images.xcassets\refresh.imageset\refresh%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\play.imageset\play%401x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\play.imageset\play.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-29-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-29%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-29%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-40%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-60%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-57.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-57%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-60%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-60%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-29.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-29%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-40.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-40%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-50.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-50%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-72-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-72%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-76.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-76%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\MCE-167.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%403x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%403x-2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo%402x-2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\logo.imageset\logo-2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%403x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%402x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%403x-1.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%403x-2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign%402x-2.png" />
+    <ImageAsset Include="Resources\Images.xcassets\campaign.imageset\campaign-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="..\..\..\sdk\AcousticMobilePush.Forms.iOS.cs">
+      <Link>AcousticMobilePush.Forms iOS Binding\AcousticMobilePush.Forms.iOS.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\plugins\Actions\Email\EmailAction.iOS.cs">
+      <Link>Custom Actions\EmailAction.iOS.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\plugins\Actions\Calendar\CalendarAction.iOS.cs">
+      <Link>Custom Actions\CalendarAction.iOS.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\plugins\Actions\Snooze\SnoozeAction.iOS.cs">
+      <Link>Custom Actions\SnoozeAction.iOS.cs</Link>
+    </Compile>
+    <Compile Include="Custom Controls\CustomMapRenderer.cs" />
+    <Compile Include="CurrentLocation.cs" />
+    <Compile Include="..\..\..\plugins\Actions\Inbox\OpenAppAction.iOS.cs">
+      <Link>Custom Actions\OpenAppAction.iOS.cs</Link>
+    </Compile>
+    <Compile Include="Custom Controls\VideoPlayerRenderer.cs" />
+    <Compile Include="PageRenderer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Insights.1.12.3\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.12.3\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.45\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <BundleResource Include="Resources\MceConfig.json" />
+    <BundleResource Include="Resources\Images.xcassets\play.imageset\play%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\play.imageset\play%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Custom Controls\" />
+    <Folder Include="AcousticMobilePush.Forms iOS Binding\" />
+    <Folder Include="Custom Actions\" />
+    <Folder Include="Resources\Images.xcassets\campaign.imageset\" />
+    <Folder Include="Resources\Images.xcassets\campaign-dark.imageset\" />
+    <Folder Include="Resources\Images.xcassets\logo-dark.imageset\" />
+  </ItemGroup>
+  <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.4.3.0.991211\build\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.4.3.0.991211\build\Xamarin.Forms.targets')" />
+</Project>

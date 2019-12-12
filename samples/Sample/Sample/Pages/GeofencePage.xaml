@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 xmlns:local="clr-namespace:Sample;assembly=Sample"
+			 x:Class="Sample.GeofencePage">
+	<ContentPage.Content>
+		<StackLayout BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
+			<StackLayout Orientation="Horizontal" Margin="20,0" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
+				<Label VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Text="Status" TextColor="{DynamicResource PrimaryTextColor}" />
+                <Button x:Name="Status" TextColor="{DynamicResource PrimaryTextColor}" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" Text="Status" />
+            </StackLayout>
+			<local:CustomMap x:Name="CustomMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="{x:Static local:App.ScreenHeight}" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

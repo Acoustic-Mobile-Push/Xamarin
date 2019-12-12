@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:fe="clr-namespace:FreshEssentials;assembly=FreshEssentials"
+	x:Class="Sample.EventsPage"
+	Title="Send Test Events">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{DynamicResource PageBackgroundColor}">
+        	<StackLayout Padding="15">
+                <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  x:Name="CustomEvent" CornerRadius="5" HeightRequest="20">
+                    <fe:SegmentedButtonGroup.LabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </fe:SegmentedButtonGroup.LabelStyle>
+                    <fe:SegmentedButtonGroup.SegmentedButtons>
+                        <fe:SegmentedButton Title="Simulate SDK Event"/>
+                        <fe:SegmentedButton Title="Send Custom Event"/>
+                    </fe:SegmentedButtonGroup.SegmentedButtons>
+                </fe:SegmentedButtonGroup>
+                <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  x:Name="SimulatedEvent" CornerRadius="5" HeightRequest="20">
+                    <fe:SegmentedButtonGroup.LabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </fe:SegmentedButtonGroup.LabelStyle>
+                    <fe:SegmentedButtonGroup.SegmentedButtons>
+                        <fe:SegmentedButton Title="App"/>
+                        <fe:SegmentedButton Title="Action"/>
+                        <fe:SegmentedButton Title="Inbox"/>
+                        <fe:SegmentedButton Title="Geofence"/>
+                        <fe:SegmentedButton Title="iBeacon"/>
+                    </fe:SegmentedButtonGroup.SegmentedButtons>
+                </fe:SegmentedButtonGroup>
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Event Details" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Type" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />                
+                    <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  HorizontalOptions="FillAndExpand" x:Name="EventType" CornerRadius="5" HeightRequest="20">
+                    <fe:SegmentedButtonGroup.LabelStyle>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="12" />
+                        </Style>
+                    </fe:SegmentedButtonGroup.LabelStyle>
+                        <fe:SegmentedButtonGroup.SegmentedButtons>
+                            <fe:SegmentedButton Title="first"/>
+                            <fe:SegmentedButton Title="second"/>
+                        </fe:SegmentedButtonGroup.SegmentedButtons>
+                    </fe:SegmentedButtonGroup>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Name" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  HorizontalOptions="Fill" x:Name="EventNameSwitch" CornerRadius="5" HeightRequest="20">
+                            <fe:SegmentedButtonGroup.LabelStyle>
+                                <Style TargetType="Label">
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </fe:SegmentedButtonGroup.LabelStyle>
+                            <fe:SegmentedButtonGroup.SegmentedButtons>
+                                <fe:SegmentedButton Title="first"/>
+                                <fe:SegmentedButton Title="second"/>
+                            </fe:SegmentedButtonGroup.SegmentedButtons>
+                        </fe:SegmentedButtonGroup>
+                        <Entry x:Name="EventName" HorizontalOptions="Fill" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" TextColor="{DynamicResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Attribution" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Entry Text="" x:Name="Attribution" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Mailing Id" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Entry Text="" x:Name="MailingId" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+                
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Event Attributes" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Entry Text="" x:Name="AttributeName" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                    <Label Text="Value" HorizontalOptions="Start" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  HorizontalOptions="Fill" x:Name="AttributeType" CornerRadius="5" HeightRequest="20">
+                            <fe:SegmentedButtonGroup.LabelStyle>
+                                <Style TargetType="Label">
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </fe:SegmentedButtonGroup.LabelStyle>
+                            <fe:SegmentedButtonGroup.SegmentedButtons>
+                                <fe:SegmentedButton Title="Date"/>
+                                <fe:SegmentedButton Title="String"/>
+                                <fe:SegmentedButton Title="Bool"/>
+                                <fe:SegmentedButton Title="Number"/>
+                            </fe:SegmentedButtonGroup.SegmentedButtons>
+                        </fe:SegmentedButtonGroup>
+                        <StackLayout Orientation="Horizontal" x:Name="DateTime">
+                            <DatePicker x:Name="DateValue" />
+                            <TimePicker x:Name="TimeValue" />
+                        </StackLayout>
+                        <fe:SegmentedButtonGroup OnColor="{DynamicResource SecondaryTextColor}" OffColor="{DynamicResource SecondaryBackgroundColor}"  HorizontalOptions="Fill" x:Name="AttributeBooleanValue" CornerRadius="5" HeightRequest="20">
+                            <fe:SegmentedButtonGroup.LabelStyle>
+                                <Style TargetType="Label">
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </fe:SegmentedButtonGroup.LabelStyle>
+                            <fe:SegmentedButtonGroup.SegmentedButtons>
+                                <fe:SegmentedButton Title="False"/>
+                                <fe:SegmentedButton Title="True"/>
+                            </fe:SegmentedButtonGroup.SegmentedButtons>
+                        </fe:SegmentedButtonGroup>
+                        <Entry Text="" x:Name="AttributeValue" HorizontalOptions="Fill" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" TextColor="{DynamicResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                
+                <Button BackgroundColor="{DynamicResource PageBackgroundColor}" Text="Send Event" HorizontalOptions="Start" x:Name="SendEventButton" TextColor="{DynamicResource TintColor}" />
+                
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Status" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Label Text="No status yet." x:Name="Status" TextColor="{DynamicResource Disabled}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

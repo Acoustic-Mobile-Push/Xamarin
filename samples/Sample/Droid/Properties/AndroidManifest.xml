@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="380" android:versionName="3.8.0" package="co.acoustic.mobile.push.samples.android">
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<!-- INTERNET is required for calling the MCE server -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- WAKE_LOC is required for running scheduled tasks -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<!-- RECEIVE_BOOT_COMPLETED is required for performing SDK task on device startup -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<!-- VIBRATE is required for notification configuration -->
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<!-- CALL_PHONE is optional. It is only required is the dial action is used -->
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<!-- ACCESS_FINE_LOCATION is optional. It is only required if location services needs to use GPS location -->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<!-- ACCESS_COARSE_LOCATION is optional. It is only required if location services needs to use network location -->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<!-- BLUETOOTH is optional. It is only required if iBeacons are supported -->
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<!-- BLUETOOTH_ADMIN is optional. It is only required if iBeacons are supported -->
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+	<application android:label="Sample" android:name="co.acoustic.mobile.push.sdk.api.MceApplication" android:usesCleartextTraffic="true" android:theme="@android:style/Theme.DeviceDefault">
+		<!-- 
+        Bug: https://issuetracker.google.com/u/1/issues/79478779?pli=1 
+        Issue: https://stackoverflow.com/questions/50461881/java-lang-noclassdeffounderrorfailed-resolution-of-lorg-apache-http-protocolve
+        -->
+		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA_sxbBOJzn5tQosvR0puwHtCdNne56vMU" />
+		<!-- This is required for google play services -->
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<!-- The provider is needed for the SDK database -->
+		<provider android:name="co.acoustic.mobile.push.sdk.db.Provider" android:authorities="${applicationId}.MCE_PROVIDER" android:exported="false" />
+		<!-- NotifActionReceiver is required for notification handling -->
+		<receiver android:name="co.acoustic.mobile.push.sdk.notification.NotifActionReceiver" />
+		<!-- AlarmReceiver is required for SDK scheduled tasks and device status updates -->
+		<receiver android:name="co.acoustic.mobile.push.sdk.wi.AlarmReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.TIMEZONE_CHANGED" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_REPLACED" />
+				<data android:scheme="package" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.LOCALE_CHANGED" />
+			</intent-filter>
+		</receiver>
+		<service android:name="co.acoustic.mobile.push.sdk.session.SessionTrackingIntentService" />
+		<!-- FCM Messages -->
+		<service android:name="co.acoustic.mobile.push.sdk.messaging.fcm.FcmMessagingService">
+			<intent-filter>
+				<action android:name="com.google.firebase.MESSAGING_EVENT" />
+			</intent-filter>
+		</service>
+		<!-- LocationUpdateCaller is used for scheduling location updates -->
+		<receiver android:name="co.acoustic.mobile.push.sdk.location.LocationUpdateCaller" />
+		<!-- EventsAlarmListener is required for event handling -->
+		<service android:name="co.acoustic.mobile.push.sdk.events.EventsAlarmListener" />
+		<!-- PhoneHomeIntentService is required to allow the client to contact the server to update state -->
+		<service android:name="co.acoustic.mobile.push.sdk.registration.PhoneHomeIntentService" />
+		<!-- RegistrationIntentService is required for SDK registration -->
+		<service android:name="co.acoustic.mobile.push.sdk.registration.RegistrationIntentService" />
+		<!-- AttributesQueueConsumer is required for attributes handling -->
+		<service android:name="co.acoustic.mobile.push.sdk.attributes.AttributesQueueConsumer" />
+		<!-- SnoozeIntentService is optional. It is required only if snooze action is used -->
+		<service android:name="co.acoustic.mobile.push.sdk.plugin.snooze.SnoozeIntentService" />
+		<!-- InboxUpdateService is optional. It is used for retrieving ibox updates from the MCE server. It is required only if inbox is used -->
+		<service android:name="co.acoustic.mobile.push.sdk.plugin.inbox.InboxUpdateService" />
+		<!-- LocationRetrieveService is optional. It is used for retrieving the device location. It is required only if locations are enabled -->
+		<service android:name="co.acoustic.mobile.push.sdk.location.LocationRetrieveService" />
+		<!-- GeofenceBroadcastReceiver is optional. It is used to receive geofence events. It is required only if locations are enabled and geofences are used -->
+		<receiver android:name="co.acoustic.mobile.push.sdk.location.GeofenceBroadcastReceiver" android:enabled="true" android:exported="true" />
+		<!-- LocationBroadcastReceiver is optional. It is used to receive location updates. It is required only if locations are enabled -->
+		<receiver android:name="co.acoustic.mobile.push.sdk.location.LocationBroadcastReceiver" android:enabled="true" android:exported="true" />
+		<!-- LocationRetrieveService is optional. It is used to handle location events backoff. It is required only if locations are enabled -->
+		<service android:name="co.acoustic.mobile.push.sdk.location.LocationEventsIntentService" />
+		<!-- LocationSyncAlarmListener is optional. It is used to scheduled location sync. It is required only if inbox is used -->
+		<service android:name="co.acoustic.mobile.push.sdk.location.LocationSyncAlarmListener" />
+		<!-- MceBluetoothScanner is optional. It is used to run the bluetooth scan. It is required only if iBeacons is used -->
+		<service android:name="co.acoustic.mobile.push.sdk.beacons.MceBluetoothScanner" />
+		<!-- MceBluetoothScanner is optional. It is used to verify bluetooth scan. It is required only if iBeacons is used -->
+		<service android:name="co.acoustic.mobile.push.sdk.beacons.BeaconsVerifier" />
+		<!-- MdeJobService is used for launching a job while the app is in the foreground. This is only used in Android O and above -->
+		<service android:name="co.acoustic.mobile.push.sdk.job.MceJobService" android:permission="android.permission.BIND_JOB_SERVICE" />
+		<!-- https://github.com/xamarin/GooglePlayServicesComponents/issues/20 -->
+		<!-- put this inside your application element -->
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				<category android:name="${applicationId}" />
+			</intent-filter>
+		</receiver>
+	</application>
+</manifest>

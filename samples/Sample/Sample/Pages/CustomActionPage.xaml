@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Sample.CustomActionPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <StackLayout Padding="15">
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Custom Action Type" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Entry Text="custom" x:Name="TypeEntry" HorizontalOptions="FillAndExpand" TextColor="{DynamicResource PrimaryTextColor}" BackgroundColor="{DynamicResource SecondaryBackgroundColor}" />
+                </StackLayout>
+                
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Register Custom Action" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Button Text="Register Custom Aciton with Type" BackgroundColor="{DynamicResource PageBackgroundColor}" HorizontalOptions="Start" x:Name="RegisterButton" TextColor="{DynamicResource TintColor}" />
+                </StackLayout>
+                
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Unregister Custom Action" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Button Text="Unregister Custom Aciton with Type" BackgroundColor="{DynamicResource PageBackgroundColor}" HorizontalOptions="Start" x:Name="UnregisterButton" TextColor="{DynamicResource TintColor}" />
+               </StackLayout>
+                
+                <StackLayout Padding="0,15,0,0">
+                    <Label Text="Status" FontAttributes="Bold" TextColor="{DynamicResource PrimaryTextColor}" />
+                    <Label Text="No status yet." x:Name="Status" TextColor="{DynamicResource Disabled}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

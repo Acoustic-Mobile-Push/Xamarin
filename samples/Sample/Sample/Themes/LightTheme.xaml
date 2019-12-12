@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="Sample.LightTheme">
+
+    <Color x:Key="TintColor">#047970</Color>
+
+    <Color x:Key="PageBackgroundColor">#ffffff</Color>
+    <Color x:Key="SecondaryBackgroundColor">#eeeeee</Color>
+
+    <Color x:Key="PrimaryTextColor">#000000</Color>
+    <Color x:Key="SecondaryTextColor">#333333</Color>
+
+    <Color x:Key="Failure">#810000</Color>
+    <Color x:Key="Warning">#929000</Color>
+    <Color x:Key="Success">#008000</Color>
+
+    <Color x:Key="Disabled">#333333</Color>
+
+</ResourceDictionary>

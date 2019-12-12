@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Sample.PostInboxTemplateView"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:FormsVideoLibrary;assembly=Sample">
+    <Grid x:Name="VerticalLayout" Padding="10" BackgroundColor="{DynamicResource PageBackgroundColor}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="200" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+		<StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" x:Name="HeaderLayout" HeightRequest="44">
+			<Image x:Name="HeaderImage" WidthRequest="44" HeightRequest="44" Aspect="AspectFill" />
+			<StackLayout>
+                <Label x:Name="Header" LineBreakMode="TailTruncation" TextColor="{DynamicResource PrimaryTextColor}" />
+                <Label x:Name="SubHeader" LineBreakMode="TailTruncation" TextColor="{DynamicResource PrimaryTextColor}" />
+			</StackLayout>
+		</StackLayout>
+		<ffimageloading:CachedImage Grid.Row="1" Grid.Column="0" x:Name="ContentImage" Aspect="AspectFit" />
+        <local:VideoPlayer Grid.Row="1" Grid.Column="0" x:Name="ContentVideo" AutoPlay="True" />
+		<Label x:Name="ContentText" Grid.Row="2" Grid.Column="0" TextColor="{DynamicResource PrimaryTextColor}" />
+
+		<StackLayout Orientation="Horizontal" x:Name="Actions" Grid.Row="3" Grid.Column="0">
+			<Button x:Name="LeftAction" HorizontalOptions="CenterAndExpand" />
+			<Button x:Name="CenterAction" HorizontalOptions="CenterAndExpand" />
+			<Button x:Name="RightAction" HorizontalOptions="CenterAndExpand" />
+		</StackLayout>
+    </Grid>
+</ContentView>

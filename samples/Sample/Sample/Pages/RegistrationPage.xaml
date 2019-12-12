@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+
+<ContentPage
+	xmlns:local="clr-namespace:Sample;assembly=Sample"
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Sample.RegistrationPage"
+	Title="Registration Details">
+	<StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+		<TableView Intent="Data">
+		    <TableRoot>
+		        <TableSection Title="Credentials">
+		        	<local:RightDetailCell Text="User Id" x:Name="UserId" />
+		        	<local:RightDetailCell Text="Channel Id" x:Name="ChannelId" />
+		        	<local:RightDetailCell Text="App Key" x:Name="AppKey" />
+                    <local:RightDetailCell Text="Registration" x:Name="Registration" />
+		        </TableSection>
+		    </TableRoot>
+		</TableView>
+		<StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}" Padding="30">
+			<Label FontSize="Micro" TextColor="{DynamicResource SecondaryTextColor}" Text="User ID and Channel ID are known only after registration. The registration process could take several minutes." />
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+
+<ContentPage
+	xmlns:local="clr-namespace:Sample;assembly=Sample"
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Sample.MainPage"
+	Title="Sample" BackgroundColor="{DynamicResource PageBackgroundColor}">
+	<StackLayout Padding="0,0,0,0">
+        <Image HorizontalOptions="Center" x:Name="Logo" />
+        <Image HorizontalOptions="Center" x:Name="Campaign" />
+        <Label TextColor="{DynamicResource PrimaryTextColor}" Text="Acoustic Campaign Mobile Sample App" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label TextColor="{DynamicResource PrimaryTextColor}" Text="SDK Version" x:Name="SDKVersionLabel" HorizontalOptions="Center" />
+        <Label TextColor="{DynamicResource PrimaryTextColor}" Text="Xamarin Plugin Version" x:Name="PluginVersionLabel" HorizontalOptions="Center" />
+
+        <TableView Intent="Data" HasUnevenRows="True" BackgroundColor="{DynamicResource SecondaryBackgroundColor}">
+		    <TableRoot>
+		        <TableSection>
+                    <TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Registration Details" Tapped="OpenPage" StyleId="Registration" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Inbox" Tapped="OpenPage" StyleId="Inbox" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="InApp" Tapped="OpenPage" StyleId="InApp" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Custom Action" Tapped="OpenPage" StyleId="CustomAction" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Send Test Events" Tapped="OpenPage" StyleId="Events" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Send User Attributes" Tapped="OpenPage" StyleId="Attributes" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="Geofences" Tapped="OpenPage" StyleId="Geofences" />
+		      		<TextCell TextColor="{DynamicResource PrimaryTextColor}" DetailColor="{DynamicResource PrimaryTextColor}" Text="iBeacons" Tapped="OpenPage" StyleId="iBeacons" />
+		        </TableSection>
+		    </TableRoot>
+		</TableView>
+	</StackLayout>
+</ContentPage>

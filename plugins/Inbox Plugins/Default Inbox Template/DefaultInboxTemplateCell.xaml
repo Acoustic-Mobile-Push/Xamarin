@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright © 2016, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.
+ -->
+<local:InboxTemplateCell 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Sample.DefaultInboxTemplateCell"
+	xmlns:local="clr-namespace:Sample;assembly=Sample"
+	Height = "44">
+	<StackLayout Orientation="Vertical" Spacing="0" Padding="5" BackgroundColor="{DynamicResource PageBackgroundColor}">
+		<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+			<Label x:Name="Subject" LineBreakMode="TailTruncation" TextColor="{DynamicResource PrimaryTextColor}" />
+			<Label x:Name="Date" XAlign="End" HorizontalOptions="FillAndExpand" LineBreakMode="NoWrap"  FontSize="Small" TextColor="{DynamicResource PrimaryTextColor}" />
+		</StackLayout>
+		<Label x:Name="Content" LineBreakMode="TailTruncation" TextColor="{DynamicResource SecondaryTextColor}" FontSize="Small" />
+	</StackLayout>
+</local:InboxTemplateCell >
